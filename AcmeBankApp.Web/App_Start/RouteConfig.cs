@@ -9,7 +9,14 @@ namespace AcmeBankApp.Web.App_Start
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // Legacy route for Angular SPA
+            // Angular SPA routes - must come before default route
+            routes.MapRoute(
+                name: "AngularAppRoot",
+                url: "app",
+                defaults: new { controller = "App", action = "Index" },
+                namespaces: new[] { "AcmeBankApp.Web.Controllers" }
+            );
+            
             routes.MapRoute(
                 name: "AngularApp",
                 url: "app/{*catchall}",

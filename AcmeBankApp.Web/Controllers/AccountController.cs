@@ -82,7 +82,8 @@ namespace AcmeBankApp.Web.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "App");
+                        // Redirect to the Angular SPA route - use relative path for virtual directory
+                        return Redirect("~/app");
                     }
                 }
                 else
