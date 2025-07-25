@@ -10,19 +10,14 @@ namespace AcmeBankApp.Web.Controllers
     {
         public ActionResult Index()
         {
-            // Temporarily bypass authentication for testing
-            /*
+            // Debug: Log the request details
+            System.Diagnostics.Debug.WriteLine($"App.Index called: {Request.Url}");
+            
             // Legacy: Basic authentication check
             if (Session["UserId"] == null)
             {
                 return RedirectToAction("Login", "Account");
             }
-            */
-            
-            // Mock session data for testing
-            Session["UserId"] = 1;
-            Session["UserName"] = "testuser";
-            Session["FullName"] = "Test User";
 
             // Pass user information to Angular app via ViewBag
             ViewBag.UserId = Session["UserId"];
@@ -39,6 +34,12 @@ namespace AcmeBankApp.Web.Controllers
             // LogHelper.LogUserActivity(Session["UserName"]?.ToString(), "AngularAppAccess", "Accessed Angular SPA");
             
             return View();
+        }
+
+        // Test action for debugging
+        public ActionResult Test()
+        {
+            return Content("App Controller is working! Route: " + Request.Url);
         }
     }
 }
