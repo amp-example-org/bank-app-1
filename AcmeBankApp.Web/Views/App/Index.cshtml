@@ -9,10 +9,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Acme Bank - Banking App</title>
-    <base href="/AcmeBankApp/app/">
+    <base href="/app/">
     
-    <!-- Legacy: Manual CSS references -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- CSS bundles -->
+    @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/angular-css")
     
     <!-- Legacy: Inline styles for Angular integration -->
@@ -87,7 +87,7 @@
     </script>
 
     <!-- Legacy: Manual script loading instead of Angular CLI -->
-    @Scripts.Render("~/bundles/jquery")
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
     
     <!-- Pre-built Angular 7 scripts (committed to source) -->
